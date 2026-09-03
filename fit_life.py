@@ -29,8 +29,7 @@ bmi = user_weight / (user_height**2)
 water_needed = user_weight * WATER_PER_KG
 
 # 4. Вывод красивого результата
-# TODO: Используй f-строку, чтобы вывести приветствие,
-# например: "Привет, Иван!"
+# TODO: Используй f-строку, чтобы вывести приветствие
 print(f"\nПривет, {user_name}!")
 print("=" * 40)
 
