@@ -1,39 +1,42 @@
-# Проект FitLife - MVP версия 1.0
 WATER_PER_KG = 0.03  # в литрах
 
 # 1. Знакомство
-# TODO: Спроси у пользователя имя и сохрани в переменную user_name
 user_name = input('Как вас зовут: ')
-
-# TODO: Спроси возраст и сохрани в переменную user_age
-# (не забудь преобразовать в число)
-user_age = int(input('Сколько вам лет? '))
+message = 'Сколько вам лет? '
+while True:
+    try:
+        user_age = int(input(message))
+        break
+    except ValueError:
+        message = 'Укажите ваш возраст числом (полных лет): '
 
 # 2. Сбор данных
-# TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
-user_weight = float(input('Укажите вес (в кг): '))
+message = 'Укажите ваш вес (в кг): '
+while True:
+    try:
+        user_weight = float(input(message))
+        break
+    except ValueError:
+        message = 'Укажите ваш вес числом (в кг): '
 
-# TODO: Запроси рост (в метрах, например 1.75)
-# и сохрани в user_height (тип float)
-user_height = float(input('Укажите рост \n'
-                          '(в метрах, используя точку, например 1.75): '))
+message = 'Укажите рост (в метрах): '
+while True:
+    try:
+        user_height = float(input(message))
+        break
+    except ValueError:
+        message = 'Укажите ваш рост числом  \n'\
+                  '(в метрах, используя точку, например 1.75): '
 
-# 3. Логика расчетов (Функции как "черный ящик":
-# используем арифметику)
-# Формула ИМТ: вес разделить на (рост в квадрате)
-# TODO: Рассчитай bmi (Индекс массы тела)
+# 3. Расчеты
+# Расчет ИМТ
 bmi = user_weight / (user_height**2)
-
-# Подсчет рекомендуемой нормы воды: вес * 0.03 л
-# TODO: Рассчитай water_needed
+# Расчет рекомендуемой нормы воды
 water_needed = user_weight * WATER_PER_KG
 
-# 4. Вывод красивого результата
-# TODO: Используй f-строку, чтобы вывести приветствие
+# 4. Вывод результата
 print(f"\nПривет, {user_name}!")
 print("=" * 40)
-
-# TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
 print(f"Отчет для пользователя: {user_name} ({user_age} г.)")
 print("=" * 40)
 print(f"Твой Индекс Массы Тела: {bmi:.1f}")
